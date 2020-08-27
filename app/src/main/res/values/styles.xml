@@ -1,0 +1,48 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Scan button -->
+    <style name="scanButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_scan</item>
+        <item name="fontFamily">@font/comfortaa</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@drawable/button_scan_text</item>
+        <item name="android:minWidth">300dp</item>
+    </style>
+
+    <!-- Main button -->
+    <style name="mainButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_main</item>
+        <item name="fontFamily">@font/comfortaa</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@drawable/button_scan_text</item>
+        <item name="android:minWidth">300dp</item>
+    </style>
+
+    <!-- Settings button -->
+    <style name="settingsButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_settings</item>
+        <item name="fontFamily">@font/comfortaa</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@drawable/button_scan_text</item>
+        <item name="android:minWidth">300dp</item>
+    </style>
+
+    <!-- Cancel button -->
+    <style name="cancelButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_cancel</item>
+        <item name="fontFamily">@font/comfortaa</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@drawable/button_cancel_text</item>
+        <item name="android:minWidth">300dp</item>
+    </style>
+
+</resources>

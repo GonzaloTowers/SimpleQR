@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimpleQR</string>
+    <string name="text_scan">Ler código</string>
+    <string name="text_cancelled">Digitalização cancelada</string>
+    <string name="text_cancel">Cancelar</string>
+    <string name="text_error">Nós encontramos um erro :/</string>
+    <string name="text_new_scan">Ler outra vez</string>
+    <string name="text_back">Retornar</string>
+    <string name="text_scan_image">Ler da imagem</string>
+    <string name="text_select_image">Selecione a imagem</string>
+    <string name="text_invalid_image">A imagem deve conter um código válido</string>
+    <string name="text_permission_denied_300">A permissão para acessar a galeria foi negada. Antes de digitalizar a partir de uma imagem, o aplicativo deve acessar o álbum do seu telefone.</string>
+    <string name="text_permission_denied_100">A permissão para acessar a câmera foi negada. Para escanear um código, o aplicativo deve ser capaz de usar a câmera do telefone.</string>
+    <string name="text_settings">Configurações</string>
+    <string name="text_permission_settings">Você pode definir as permissões nas configurações</string>
+    <string name="text_ok">De acordo</string>
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SimpleQR</string>
+    <string name="text_auth" translatable="false">estudiotremolina.com</string>
+    <string name="text_scan">Scan</string>
+    <string name="text_ok">OK</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="text_cancelled">Scan cancelled</string>
+    <string name="text_back">Back</string>
+    <string name="text_empty" translatable="false"/>
+    <string name="text_error">We have found an error :/</string>
+    <string name="text_new_scan">New scan</string>
+    <string name="text_scan_image">Scan from image</string>
+    <string name="text_select_image">Select image</string>
+    <string name="text_warning" translatable="false">Warning</string>
+    <string name="text_invalid_image">Image must content a valid QR Code</string>
+    <string name="text_permission_denied_100">Permission to access the camera has been denied. In order to scan a code, app must be able to use the phone\'s camera.</string>
+    <string name="text_permission_denied_300">Permission to access the gallery has been denied. Before you can scan from an image, app must be able to access your phone\'s album.</string>
+    <string name="text_settings">Go to settings</string>
+    <string name="text_permission_settings">You can grant configure permissions from Settings</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimpleQR</string>
+    <string name="text_scan">Escanear</string>
+    <string name="text_cancelled">Se ha cancelado el escaneo</string>
+    <string name="text_cancel">Cancelar</string>
+    <string name="text_error">Se ha producido un error :/</string>
+    <string name="text_new_scan">Escanear de nuevo</string>
+    <string name="text_back">Volver</string>
+    <string name="text_scan_image">Escanear desde imagen</string>
+    <string name="text_select_image">Selecciona una imagen</string>
+    <string name="text_invalid_image">La imagen debe contener un código QR válido</string>
+    <string name="text_permission_denied_100">El permiso de acceso a la cámara se ha denegado. Para poder escanear un código, se debe poder usar la cámara del teléfono.</string>
+    <string name="text_permission_denied_300">El permiso de acceso a la galería se ha denegado. Para poder escanear desde una imagen, se debe poder acceder al álbum del teléfono.</string>
+    <string name="text_settings">Ir a ajustes</string>
+    <string name="text_permission_settings">Puedes configurar los permisos desde ajustes</string>
+    <string name="text_ok">Vale</string>
+</resources>

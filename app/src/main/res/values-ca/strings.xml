@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimpleQR</string>
+    <string name="text_permission_denied_100">Es va denegar el permís per accedir a la càmera. Per escanejar un codi, l\'aplicació ha de poder utilitzar la càmera de telèfon.</string>
+    <string name="text_permission_denied_300">El permís d\'accés a la galeria s\'ha denegat. Per poder escanejar des d\'una imatge, s\'ha de poder accedir a l\'àlbum de el telèfon.</string>
+    <string name="text_invalid_image">La imatge ha de contenir un codi QR vàlid</string>
+    <string name="text_select_image">Selecciona una imatge</string>
+    <string name="text_scan_image">Escaneig des imatge</string>
+    <string name="text_new_scan">Escanejar una altra vegada</string>
+    <string name="text_error">S\'ha produït un error</string>
+    <string name="text_back">Tornar</string>
+    <string name="text_cancelled">S\'ha cancel·lat l\'escaneig</string>
+    <string name="text_cancel">Cancel·lar</string>
+    <string name="text_scan">Escanejar</string>
+    <string name="text_settings">Aneu a la configuració</string>
+    <string name="text_permission_settings">Pots configurar els permisos des ajustos</string>
+    <string name="text_ok">D\'acord</string>
+</resources>

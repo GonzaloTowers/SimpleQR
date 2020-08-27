@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ScanQRImage"
+    android:background="@color/colorPrimaryDark">
+
+    <WebView
+        android:id="@+id/webViewer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frame_bar" />
+
+    <FrameLayout
+        android:id="@+id/frame_result"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape_frame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:textColor="@color/gray"
+            android:padding="10dp"
+            android:text="@string/text_empty"
+            android:layout_gravity="center_horizontal|top"/>
+
+        <ImageView
+            android:id="@+id/ic_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_warning"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:contentDescription="@string/text_warning" />
+
+        <Button
+            android:id="@+id/button_conf"
+            style="@style/settingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_settings"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal|center_vertical" />
+
+        <Button
+            android:id="@+id/button_scan"
+            style="@style/scanButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="110dp"
+            android:text="@string/text_scan"
+            android:layout_gravity="center_horizontal|bottom"/>
+
+        <Button
+            android:id="@+id/button_image"
+            style="@style/mainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/text_scan_image"
+            android:layout_gravity="center_horizontal|bottom"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_bar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/text_back"
+            android:fontFamily="@font/comfortaa"
+            android:text="@string/text_back"
+            android:textColor="@color/white"
+            app:srcCompat="@drawable/ic_monster_qr" />
+
+        <ImageButton
+            android:id="@+id/button_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/text_back"
+            app:srcCompat="@drawable/ic_monster_qr" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
