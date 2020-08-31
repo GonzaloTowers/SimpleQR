@@ -1,6 +1,7 @@
 package com.gonzalotowers.simpleqr
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
@@ -9,6 +10,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import java.util.*
 
 class ResultActivity : AppCompatActivity() {
@@ -46,15 +48,16 @@ class ResultActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled")
     private fun handleResult(result: String) {
         if (Patterns.WEB_URL.matcher(result.toLowerCase(Locale.ROOT)).matches()) {
+            val urlDocs: String = this.getString(R.string.url_docs)
             val webView: WebView = findViewById(R.id.webViewer)
             webView.visibility = View.VISIBLE
             webView.settings.javaScriptEnabled = true
-            webView.loadUrl(result)
+            webView.loadUrl(urlDocs + result)
 
             // Any link clicked inside the webview does not open browser and works inside webview
             webView.webViewClient = object : WebViewClient() {
                 override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                    view.loadUrl(url)
+                    view.loadUrl(urlDocs + url)
                     return true
                 }
             }
