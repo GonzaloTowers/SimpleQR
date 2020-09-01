@@ -12,8 +12,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
 import android.util.Log
+import android.util.Patterns
 import android.view.Gravity
 import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -26,6 +29,7 @@ import com.google.zxing.*
 import com.google.zxing.Reader
 import com.google.zxing.common.HybridBinarizer
 import java.io.*
+import java.util.*
 
 const val PICK_IMAGE: Int = 1
 const val READ_EXTERNAL_STORAGE_CODE: Int = 300
@@ -116,7 +120,27 @@ class ScanQRImage : AppCompatActivity() {
         val bitmap = BitmapFactory.decodeStream(ist)
         val decoded = scanQRImage(bitmap)
         if (decoded != null) {
-            findViewById<TextView>(R.id.result_text).text = decoded
+            if (Patterns.WEB_URL.matcher(decoded.toLowerCase(Locale.ROOT)).matches()) {
+                findViewById<FrameLayout>(R.id.frame_result).visibility = View.GONE
+                val urlDocs: String = this.getString(R.string.url_docs)
+                val webView: WebView = findViewById(R.id.webViewer)
+                webView.visibility = View.VISIBLE
+                webView.settings.javaScriptEnabled = true
+                webView.loadUrl(urlDocs + decoded)
+
+                // Any link clicked inside the webview does not open browser and works inside webview
+                webView.webViewClient = object : WebViewClient() {
+                    override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                        view.loadUrl(urlDocs + url)
+                        return true
+                    }
+                }
+            } else {
+                findViewById<FrameLayout>(R.id.frame_result).visibility = View.VISIBLE
+                val textView: TextView = findViewById(R.id.result_text)
+                textView.text = decoded
+            }
+
         } else {
             warningMessage(this.getString(R.string.text_invalid_image))
         }
