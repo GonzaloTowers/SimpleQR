@@ -15,4 +15,5 @@
     <string name="text_settings">Ir a ajustes</string>
     <string name="text_permission_settings">Puedes configurar los permisos desde ajustes</string>
     <string name="text_ok">Vale</string>
+    <string name="text_loading">Cargando: %1$s</string>
 </resources>

@@ -18,4 +18,5 @@
     <string name="text_settings">Go to settings</string>
     <string name="text_permission_settings">You can grant configure permissions from Settings</string>
     <string name="url_docs" translatable="false">https://docs.google.com/viewer?url=</string>
+    <string name="text_loading">Loading: %1$s</string>
 </resources>

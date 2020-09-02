@@ -1,6 +1,7 @@
 package com.gonzalotowers.simpleqr
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -17,17 +18,16 @@ import android.view.Gravity
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.gonzalotowers.simpleqr.utils.Util
 import com.google.zxing.*
 import com.google.zxing.Reader
 import com.google.zxing.common.HybridBinarizer
+import okhttp3.*
 import java.io.*
 import java.util.*
 
@@ -115,6 +115,7 @@ class ScanQRImage : AppCompatActivity() {
         startActivityForResult(Intent.createChooser(intent, this.getString(R.string.text_select_image)), PICK_IMAGE)
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun scanFromImage(file: File) {
         val ist: InputStream = BufferedInputStream(FileInputStream(file))
         val bitmap = BitmapFactory.decodeStream(ist)
@@ -125,13 +126,41 @@ class ScanQRImage : AppCompatActivity() {
                 val urlDocs: String = this.getString(R.string.url_docs)
                 val webView: WebView = findViewById(R.id.webViewer)
                 webView.visibility = View.VISIBLE
+                webView.settings.javaScriptCanOpenWindowsAutomatically = true
                 webView.settings.javaScriptEnabled = true
-                webView.loadUrl(urlDocs + decoded)
+
+                OkHttpClient().newCall(Request.Builder().url(decoded).build()).enqueue(object :
+                    Callback {
+                    override fun onFailure(call: Call?, e: IOException?) {
+                        Log.e("ERROR","${e?.message}")
+                    }
+
+                    override fun onResponse(call: Call?, response: Response?) {
+                        if (response != null) {
+                            val requestURL = response.request().url().toString()
+                            Log.i("Request-Url", requestURL)
+                            if(Util.containsFile(requestURL)){
+                                Log.i("File", "URL contains a file")
+                                runOnUiThread {
+                                    Toast.makeText(this@ScanQRImage, String.format(this@ScanQRImage.getString(R.string.text_loading), requestURL), Toast.LENGTH_LONG).show()
+                                    webView.loadUrl(urlDocs + requestURL)
+                                }
+                            } else {
+                                Log.i("File", "URL does not contain file")
+                                runOnUiThread {
+                                    Toast.makeText(this@ScanQRImage, String.format(this@ScanQRImage.getString(R.string.text_loading), requestURL), Toast.LENGTH_LONG).show()
+                                    webView.loadUrl(requestURL)
+                                }
+                            }
+                        }
+                    }
+                })
 
                 // Any link clicked inside the webview does not open browser and works inside webview
                 webView.webViewClient = object : WebViewClient() {
                     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                        view.loadUrl(urlDocs + url)
+                        Toast.makeText(this@ScanQRImage, String.format(this@ScanQRImage.getString(R.string.text_loading), url), Toast.LENGTH_LONG).show()
+                        webView.loadUrl(url)
                         return true
                     }
                 }

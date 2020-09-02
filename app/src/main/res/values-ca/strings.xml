@@ -15,4 +15,5 @@
     <string name="text_settings">Aneu a la configuració</string>
     <string name="text_permission_settings">Pots configurar els permisos des ajustos</string>
     <string name="text_ok">D\'acord</string>
+    <string name="text_loading">Carregant: %1$s</string>
 </resources>
